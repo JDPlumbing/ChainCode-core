@@ -1,0 +1,15 @@
+{
+  "event_id": "evt_8a7d3a2c41a",         // unique local UUID or short hash
+  "slm_code": "2c93...",                 // 32-byte tuple hash (who did what, etc.)
+  "from_id": "20d9-9f0f-f9c6",           // actor chaincode (who did the thing)
+  "to_id": "1e65-bdb4-13af",             // target or beneficiary (optional)
+  "value": 1.0,                           // default = 1.0, upgraded by verification
+  "signed_by": [                          // optional list of public_slugs that signed this
+    "20d9-9f0f-f9c6"
+  ],
+  "synced": false,                        // has this event been pushed to public ledger?
+  "confirmed": false,                     // has this been co-signed by the other party?
+  "created_at": "2025-07-02T13:45:00Z",  // ISO timestamp
+  "note": "Cleared customer’s main line in kitchen",
+  "signature": null                       // optional cryptographic signature blob
+}

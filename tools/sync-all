@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "🔄 Syncing chaincodes..."
+python sync_chaincodes.py
+
+echo "🔗 Syncing links..."
+python sync_links.py
+
+echo "✅ All sync complete."

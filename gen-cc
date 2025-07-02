@@ -1,0 +1,11 @@
+#!/bin/bash
+
+TYPE=$1
+VALUE=$2
+
+if [ -z "$TYPE" ] || [ -z "$VALUE" ]; then
+  echo "Usage: ./gen-cc <type> <value>"
+  exit 1
+fi
+
+python chaincode/generate_chaincode.py --type "$TYPE" --value "$VALUE"

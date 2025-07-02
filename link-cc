@@ -1,0 +1,17 @@
+#!/bin/bash
+
+FROM_SLUG=$1
+LINK_TYPE=$2
+TO_SLUG=$3
+NOTE=$4
+
+if [ -z "$FROM_SLUG" ] || [ -z "$LINK_TYPE" ] || [ -z "$TO_SLUG" ]; then
+  echo "Usage: ./link-cc <from_slug> <link_type> <to_slug> \"optional note\""
+  exit 1
+fi
+
+python link_chaincodes.py \
+  --from "./ChainCode-local/${FROM_SLUG}.json" \
+  --to "./ChainCode-local/${TO_SLUG}.json" \
+  --type "$LINK_TYPE" \
+  --note "$NOTE"

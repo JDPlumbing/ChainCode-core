@@ -1,0 +1,33 @@
+{
+  "name": null,
+  "dob": null,
+  "gender": null,
+  "ssn": null,
+  "email": null,
+  "phone_mobile": null,
+  "phone_home": null,
+  "phone_work": null,
+
+  "address_street": null,
+  "address_city": null,
+  "address_state": null,
+  "address_zip": null,
+  "country": null,
+  "mailing_address": null,
+
+  "employer": null,
+  "job_title": null,
+  "work_phone": null,
+  "work_address": null,
+
+  "emergency_contact_name": null,
+  "emergency_contact_phone": null,
+  "preferred_language": null,
+  "marital_status": null,
+  "citizenship": null,
+
+  "username": null,
+  "password": null,
+  "security_question": null,
+  "security_answer": null
+}
