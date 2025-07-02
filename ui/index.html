@@ -7,10 +7,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Chaincode Master Form</h1>
+
+<!-- 🧠 WHAT IS CHAINCODE? -->
+<div style="background: #1a1a1a; color: #ccc; padding: 1rem; margin-bottom: 1.5rem; border-left: 4px solid #0ff; border-radius: 6px;">
+  <h2 style="margin-top: 0; color: #0ff;">What is a Chaincode?</h2>
+  <p>A <strong>Chaincode</strong> is a unique, cryptographically generated ID that represents a person, object, or idea. You can think of it like a permanent tag or identity token that other data can link to over time.</p>
+  <p>This tool lets you create new chaincodes, optionally associate them with info (like a name, email, etc), and link them together to form a living web of trust.</p>
+  <ul>
+    <li>🔒 Nothing is public unless you choose "Sync to Ledger"</li>
+    <li>💾 Everything is saved locally first</li>
+    <li>🔗 Links between codes show relationships (like owner → license)</li>
+  </ul>
+  <p>You’re free to leave any field blank or use pseudonyms — it’s your chaincode, your rules.</p>
+</div>
+
+
+  <h2>🧬 Chaincode Master Form</h2>
   <form id="chaincode-form">
-    <label for="entity_type">Entity Type</label>
+
+    <!-- 📦 ENTITY TYPE -->
+    <label for="entity_type">Entity Type (what you're creating):</label>
     <select name="entity_type" id="entity_type" required>
+      <option value="anonymous">Anonymous</option>
       <option value="person">Person</option>
       <option value="company">Company</option>
       <option value="property">Property</option>
@@ -20,49 +38,184 @@
       <option value="custom">Custom</option>
     </select>
 
-    <label>Name: <input type="text" name="name"></label><br>
-    <label>Date of Birth: <input type="date" name="dob"></label><br>
-    <label>Gender: <input type="text" name="gender"></label><br>
-    <label>SSN: <input type="text" name="ssn"></label><br>
-    <label>Email: <input type="email" name="email"></label><br>
-    <label>Mobile Phone: <input type="tel" name="phone_mobile"></label><br>
-    <label>Street Address: <input type="text" name="address_street"></label><br>
-    <label>City: <input type="text" name="address_city"></label><br>
-    <label>State: <input type="text" name="address_state"></label><br>
-    <label>Zip: <input type="text" name="address_zip"></label><br>
-    <label>Employer: <input type="text" name="employer"></label><br>
-    <label>Title: <input type="text" name="job_title"></label><br>
-    <label>Emergency Contact: <input type="text" name="emergency_contact_name"></label><br>
-    <label>Language: <input type="text" name="preferred_language"></label><br>
-    <label>Citizenship: <input type="text" name="citizenship"></label><br>
+    <!-- 🧍 PERSONAL FIELDS (OPTIONAL) -->
+    <label>Name: <input type="text" name="name" placeholder="John Doe (optional)"></label>
+    <label>Date of Birth: <input type="date" name="dob" placeholder="MM/DD/YYYY"></label>
+    <label>Gender: <input type="text" name="gender" placeholder="e.g. male, female, nonbinary"></label>
+
+    <!-- 🔒 SENSITIVE FIELDS - DOXING RISK -->
+    <label>SSN: <input type="text" name="ssn" placeholder="e.g. 123-45-6789">
+      <small style="color:#faa; display:block">⚠️ Do not enter unless you're using this offline or encrypted</small>
+    </label>
+
+    <label>Email: <input type="email" name="email" placeholder="your@email.com"></label>
+    <label>Mobile Phone: <input type="tel" name="phone_mobile" placeholder="e.g. 555-123-4567"></label>
+
+    <!-- 🏠 ADDRESS INFO -->
+    <label>Street Address: <input type="text" name="address_street"></label>
+    <label>City: <input type="text" name="address_city"></label>
+    <label>State: <input type="text" name="address_state"></label>
+    <label>Zip: <input type="text" name="address_zip"></label>
+
+    <!-- 💼 EMPLOYMENT -->
+    <label>Employer: <input type="text" name="employer"></label>
+    <label>Job Title: <input type="text" name="job_title"></label>
+
+    <!-- 📞 EMERGENCY + PREFS -->
+    <label>Emergency Contact Name: <input type="text" name="emergency_contact_name"></label>
+    <label>Preferred Language: <input type="text" name="preferred_language" placeholder="e.g. English"></label>
+    <label>Citizenship: <input type="text" name="citizenship"></label>
+
+    <!-- 👁️ VISIBILITY CONTROLS -->
     <label>Visibility:
       <select name="visibility">
-        <option value="public">Public</option>
-        <option value="masked">Masked</option>
-        <option value="private">Private</option>
+        
+        <option value="masked">🔒 Encrypted (masked from others)</option>
+        <option value="private">🛑 Local Only (not synced)</option>
+        <option value="public">🌐 Public (readable)</option>
       </select>
-    </label><br>
+    </label>
 
-    
-<div class="checkbox-grid">
-  <div class="checkbox-item">
-    <label for="register">Sync to Ledger after generate</label>
-    <input type="checkbox" id="register" name="register" />
+
+    <!-- ⚙️ OPTIONS -->
+    <div class="checkbox-grid">
+      <div class="checkbox-item">
+        <label for="register">Sync to Ledger (optional)</label>
+        <input type="checkbox" id="register" name="register" />
+      </div>
+      <div class="checkbox-item">
+        <label for="download">Download JSON File</label>
+        <input type="checkbox" id="download" name="download" />
+      </div>
+    </div>
+
+  <!-- 🚨 PRIVACY WARNING / DISCLAIMER -->
+  <div style="background: #300; color: #faa; padding: 1rem; margin-bottom: 1rem; border: 1px solid red; border-radius: 6px;">
+    <strong>⚠️ Warning:</strong> This tool generates unique, traceable identifiers. Only enter personal or sensitive info if you understand the implications. You can leave any field blank. Nothing is uploaded unless you choose "Sync to Ledger".
   </div>
-  <div class="checkbox-item">
-    <label for="download">Download JSON file after creation</label>
-    <input type="checkbox" id="download" name="download" />
-  </div>
+
+    <!-- 🚀 SUBMIT -->
+    <button type="submit">Generate Chaincodes</button>
+    </form>
 </div>
 
-
-
-
-
-    <button type="submit">Generate Chaincodes</button>
-  </form>
-
+  <!-- 📤 OUTPUT -->
   <div id="output"></div>
+  
+  <!-- Chaincode Linking Tool -->
+  <h2>🔗 Link Chaincodes</h2>
+
+<div style="margin-top: -1rem; margin-bottom: 2rem;">
+  <form id="link-form" class="card">
+
+    <label for="from_slug">From Chaincode Slug (e.g. abcd-1234-efgh):</label>
+<input type="text" id="from_slug" name="from_slug" required>
+
+    <label for="to_slug">To Chaincode Slug:</label>
+<input type="text" id="to_slug" name="to_slug" required>
+
+    <label>Link Type:
+      <select name="link_type">
+        <option value="linked_to">linked_to</option>
+        <option value="owns">owns</option>
+        <option value="associated_with">associated_with</option>
+      </select>
+    </label>
+
+    <label for="note">Optional Note:</label>
+<input type="text" id="note" name="note" placeholder="(optional)">
+
+    <button type="submit">Create Link</button>
+    </form>
+  <div id="link-output"></div>
+</div>
+
+<!-- Optional Unlink Tool -->
+  <h2>🔓 Unlink Chaincodes</h2>
+
+<div style="margin-top: -1rem;">
+  <form id="unlink-form" class="card">
+
+    <label for="slug_a">Chaincode A Slug (must be hyphenated, e.g. 1234-5678-9abc):</label>
+
+<input type="text" id="slug_a" name="slug_a" required>
+
+   <label for="slug_a">Chaincode B Slug (must be hyphenated, e.g. 1234-5678-9abc):</label>
+
+<input type="text" id="slug_b" name="slug_b" required>
+
+    <label>Link Type:
+      <select name="link_type">
+        <option value="linked_to">linked_to</option>
+        <option value="owns">owns</option>
+        <option value="associated_with">associated_with</option>
+      </select>
+    </label>
+
+    <button type="submit">Unlink</button>
+    </form>
+  <div id="unlink-output"></div>
+</div>
+
+<script>
+// LINK CREATION
+const linkForm = document.querySelector("#link-form");
+const linkOutput = document.querySelector("#link-output");
+linkForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  linkOutput.innerText = "⏳ Linking...";
+
+  const formData = new FormData(linkForm);
+  const payload = {
+    from_slug: formData.get("from_slug"),
+    to_slug: formData.get("to_slug"),
+    link_type: formData.get("link_type"),
+    note: formData.get("note") || ""
+  };
+
+  try {
+    const res = await fetch("/link", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+    if (res.ok) {
+      linkOutput.innerHTML = `<p style='color:lime;'>✅ Link created: <code>${data.path}</code></p>`;
+    } else {
+      linkOutput.innerHTML = `<p style='color:red;'>❌ Failed: ${data.error || JSON.stringify(data)}</p>`;
+    }
+  } catch (err) {
+    linkOutput.innerHTML = `<p style='color:red;'>❌ Error: ${err.message}</p>`;
+  }
+});
+
+// UNLINK (mark revoked)
+const unlinkForm = document.querySelector("#unlink-form");
+const unlinkOutput = document.querySelector("#unlink-output");
+unlinkForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  unlinkOutput.innerText = "⏳ Unlinking...";
+
+  const slugA = unlinkForm.slug_a.value.trim();
+  const slugB = unlinkForm.slug_b.value.trim();
+  const type = unlinkForm.link_type.value;
+  const filename = `${slugA}__${type}__${slugB}.link.json`;
+
+  try {
+    const res = await fetch(`/unlink/${filename}`, { method: "POST" });
+    const data = await res.json();
+    if (res.ok) {
+      unlinkOutput.innerHTML = `<p style='color:orange;'>🔓 Link revoked: ${data.message}</p>`;
+    } else {
+      unlinkOutput.innerHTML = `<p style='color:red;'>❌ Failed: ${data.error || JSON.stringify(data)}</p>`;
+    }
+  } catch (err) {
+    unlinkOutput.innerHTML = `<p style='color:red;'>❌ Error: ${err.message}</p>`;
+  }
+});
+</script>
+
 
   <script src="main.js"></script>
 </body>

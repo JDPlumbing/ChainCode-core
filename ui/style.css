@@ -15,7 +15,24 @@ h1 {
   text-align: center;
 }
 
-form {
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+/* Only apply form styling to chaincode-form */
+#chaincode-form {
+  background: #222;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 12px #000;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Optional: use this for other styled forms */
+form.card {
   background: #222;
   padding: 1.5rem;
   border-radius: 8px;
@@ -67,7 +84,7 @@ pre {
 .checkbox-grid {
   display: flex;
   justify-content: center;
-  gap: 3rem; /* spacing between the two checkboxes */
+  gap: 3rem;
   margin-bottom: 1rem;
 }
 

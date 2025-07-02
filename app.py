@@ -183,5 +183,21 @@ async def download_chaincode(slug: str):
         return JSONResponse(status_code=404, content={"error": "File not found"})
     return FileResponse(path=file_path, filename=f"{slug}.json", media_type="application/json")
 
+@app.post("/unlink/{filename}")
+async def unlink(filename: str):
+    try:
+        path = os.path.join("ChainCode-local", "links", filename)
+        if not os.path.exists(path):
+            return JSONResponse(status_code=404, content={"error": "Link file not found"})
+        with open(path, "r+") as f:
+            data = json.load(f)
+            data["revoked"] = True
+            f.seek(0)
+            json.dump(data, f, indent=2)
+            f.truncate()
+        return {"message": f"{filename} marked as revoked"}
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
 if __name__ == "__main__":
     uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
