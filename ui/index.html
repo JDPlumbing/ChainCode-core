@@ -9,6 +9,17 @@
 <body>
   <h1>Chaincode Master Form</h1>
   <form id="chaincode-form">
+    <label for="entity_type">Entity Type</label>
+    <select name="entity_type" id="entity_type" required>
+      <option value="person">Person</option>
+      <option value="company">Company</option>
+      <option value="property">Property</option>
+      <option value="bot">Bot</option>
+      <option value="device">Device</option>
+      <option value="idea">Idea</option>
+      <option value="custom">Custom</option>
+    </select>
+
     <label>Name: <input type="text" name="name"></label><br>
     <label>Date of Birth: <input type="date" name="dob"></label><br>
     <label>Gender: <input type="text" name="gender"></label><br>
@@ -31,6 +42,23 @@
         <option value="private">Private</option>
       </select>
     </label><br>
+
+    
+<div class="checkbox-grid">
+  <div class="checkbox-item">
+    <label for="register">Sync to Ledger after generate</label>
+    <input type="checkbox" id="register" name="register" />
+  </div>
+  <div class="checkbox-item">
+    <label for="download">Download JSON file after creation</label>
+    <input type="checkbox" id="download" name="download" />
+  </div>
+</div>
+
+
+
+
+
     <button type="submit">Generate Chaincodes</button>
   </form>
 
