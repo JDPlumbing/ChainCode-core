@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environments
+.env
+.venv/
+
+# Local keys
+keys/
+
+# Cache and IDE
+*.log
+*.DS_Store
+.vscode/
+
+# Output
+*.zip
+*.tar.gz
+*.egg-info/
+
+# Local chaincodes (PII and generated data)
+# Local chaincodes (PII and generated data)
+ChainCode-local/*
+!ChainCode-local/.gitkeep
+
+# Tracker files
+.sync_tracker.json
