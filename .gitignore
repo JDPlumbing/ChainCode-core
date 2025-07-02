@@ -28,3 +28,7 @@ ChainCode-local/*
 
 # Tracker files
 .sync_tracker.json
+
+archive/
+keys/*
+!keys/.gitkeep
