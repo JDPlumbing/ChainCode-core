@@ -15,12 +15,6 @@ h1 {
   text-align: center;
 }
 
-h2 {
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-  text-align: center;
-}
-
 /* Only apply form styling to chaincode-form */
 #chaincode-form {
   background: #222;
@@ -39,6 +33,26 @@ form.card {
   box-shadow: 0 0 12px #000;
   max-width: 600px;
   width: 100%;
+}
+
+.result-card {
+  background: #222;
+  color: #ddd;
+  font-family: system-ui, sans-serif;
+  padding: 1rem;
+  border: 1px solid #444;
+  border-radius: 8px;
+  margin-top: 2rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+.result-card code {
+  background: #333;
+  color: #ccc;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: monospace;
 }
 
 form label {
@@ -66,14 +80,9 @@ form button {
 }
 
 #output {
-  background: #1a1a1a;
-  border: 1px solid #444;
-  padding: 1rem;
   margin-top: 2rem;
-  border-radius: 6px;
-  white-space: pre-wrap;
-  color: #0f0;
-  font-family: monospace;
+  width: 100%;
+  max-width: 600px;
 }
 
 pre {

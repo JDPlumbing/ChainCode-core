@@ -199,5 +199,26 @@ async def unlink(filename: str):
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
 
+from fastapi.responses import FileResponse
+import zipfile
+import tempfile
+
+@app.get("/zip")
+async def download_zip(slugs: str):
+    files = []
+    for slug in slugs.split(","):
+        path = f"ChainCode-local/{slug}.json"
+        if os.path.exists(path):
+            files.append(path)
+
+    if not files:
+        raise HTTPException(status_code=404, detail="No matching files")
+
+    temp = tempfile.NamedTemporaryFile(delete=False, suffix=".zip")
+    with zipfile.ZipFile(temp.name, "w") as zf:
+        for f in files:
+            zf.write(f, arcname=os.path.basename(f))
+    return FileResponse(temp.name, filename="chaincodes_bundle.zip")
+
 if __name__ == "__main__":
     uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)

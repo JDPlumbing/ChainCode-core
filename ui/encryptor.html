@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chaincode Encryptor/Decryptor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>🔐 Chaincode Encryptor & Decryptor</h2>
+  <p>This tool runs 100% locally in your browser. No data is uploaded anywhere.</p>
+
+  <div class="card">
+    <h3>Step 1: Load Chaincode JSON</h3>
+    <input type="file" id="jsonFileInput" accept="application/json">
+    <textarea id="jsonInput" rows="10" style="width:100%; margin-top: 1rem;" placeholder="...or paste JSON here"></textarea>
+    <button onclick="parseJSON()">🔍 Parse JSON</button>
+  </div>
+
+  <div id="fieldSelector" class="card" style="display:none;">
+    <h3>Step 2: Select Fields to Encrypt</h3>
+    <form id="fieldForm"></form>
+    <button onclick="encryptFields()">🔐 Encrypt Selected</button>
+  </div>
+
+  <div class="card">
+    <h3>Step 3: Decrypt Encrypted Chaincode</h3>
+    <input type="file" id="decryptFileInput" accept="application/json">
+    <input type="text" id="decryptKey" placeholder="Enter Fernet Key" style="width:100%; margin: 0.5rem 0;">
+    <button onclick="decryptChaincode()">🔓 Decrypt</button>
+    <pre id="decryptedOutput" style="white-space: pre-wrap; background:#1a1a1a; padding:1rem;"></pre>
+  </div>
+
+  <script src="encryptor.js"></script>
+</body>
+</html>
